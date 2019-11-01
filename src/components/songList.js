@@ -17,6 +17,7 @@ class SongList extends Component {
         });
     }
     render() { 
+        console.log(this.props)
         return (
             <div className="ui divided list">{this.renderlist()}</div>
         )
@@ -24,9 +25,11 @@ class SongList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    console.log(state)
     return {songs: state.songs};
 }
 
-
-export default connect(mapStateToProps, { SelectSong })(SongList);
+/*
+        here *SelectSong* is an action as user is selecting a specific song from a list     
+ */
+export default connect(mapStateToProps, { SelectSong:SelectSong })(SongList);
